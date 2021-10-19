@@ -4,8 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -20,16 +19,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
 
-    @Column(nullable = false)
+    @Column(length = 45, nullable = false)
     private String user_name;
 
-    @Column(nullable = false)
+    @Column(length = 45, nullable = false)
     private String password;
 
-    @Column(nullable = true)
+    @Column(length = 45, nullable = true)
     private String account;
     
-    @Column(nullable = true)
+    @Column(length = 45, nullable = true)
     private String email;
     
     @Column(nullable = false)
