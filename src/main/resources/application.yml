@@ -1,15 +1,23 @@
 spring:
   jpa:
     show-sql: true
-    hibernate:
-      ddl-auto: create-drop
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+    database: sql-server
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: true
   datasource:
-    username: sa
-    password: 
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${db_host:169.56.174.133}:${db_port:3306}/${db_name:test}?useUnicode=true&characterEncoding=utf-8
+    username: ${db_user:dkne}
+    password: ${db_pw:happy@cloud}
+    sql-script-encoding: utf-8
+    hikari:
+      connection-timeout: 5000
+      validation-timeout: 1000
+      maximum-pool-size: 30
+      minimum-idle: 2
+      connection-test-query: SELECT 1
 
+
+#hibernate.globally_quoted_identifiers=true
