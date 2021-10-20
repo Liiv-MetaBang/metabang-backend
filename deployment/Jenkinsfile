@@ -112,13 +112,13 @@ podTemplate(
 				container("docker") {
 					echo "dockerRegistry: ${dockerRegistry}"
 					echo "credential_registry: ${credential_registry}"
-					//docker.withRegistry("${dockerRegistry}", "${credential_registry}") {
-					sh "docker login -u=${dockeruser} -p=${dockerpwd}"
+					//docker.withRegistry("${dockerRegistry}", "${credential_registry}") {//uncomment this line later due to unsecure password
+					sh "docker login -u=${dockeruser} -p=${dockerpwd}" //delete this line later due to unsecure password
 					sh "docker build -f ./deployment/Dockerfile -t ${image}:${tag} ."
 					sh "docker push ${image}:${tag}"
 					sh "docker tag ${image}:${tag} ${image}:dev"
 					sh "docker push ${image}:dev"
-					//}
+					//}//uncomment this line later due to unsecure password
 				}
 			}
 			

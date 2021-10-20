@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: sample
-        image: doyajii1/sample:dev
+        image: cqo1154/sample:dev
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
