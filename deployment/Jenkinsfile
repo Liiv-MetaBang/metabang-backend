@@ -1,4 +1,4 @@
-def label = "bootcamp-${UUID.randomUUID().toString()}"
+def label = "hellonode-${UUID.randomUUID().toString()}"
 
 /* -------- functions ---------- */
 def notifySlack(STATUS, COLOR) {
@@ -108,9 +108,9 @@ podTemplate(
 			// Build Docker, Push Image to Docker Hub Repository.        
 			stage("Build Microservice image") {
 				container("docker") {
-					echo "dockerRegistry: ${dockerRegistry}"
-					echo "credential : ${credential_registry}"
 					docker.withRegistry("${dockerRegistry}", "${credential_registry}") {
+						echo "registry, ${dockerRegistry}"
+						echo "credential, ${credential_registry}"
 						sh "docker build -f ./deployment/Dockerfile -t ${image}:${tag} ."
 						sh "docker push ${image}:${tag}"
 						sh "docker tag ${image}:${tag} ${image}:dev"
