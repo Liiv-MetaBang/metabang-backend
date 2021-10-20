@@ -57,6 +57,8 @@ podTemplate(
 		def dockerRegistry = props["dockerRegistry"]
 		def credential_registry=props["credential_registry"]
 		def image = props["image"]
+		def dockeruser = props["dockeruser"]
+		def dockerpwd = props["dockerpwd"]
 
 		// Base Directory
 		def baseDir = props["baseDir"]
@@ -111,6 +113,7 @@ podTemplate(
 					echo "dockerRegistry: ${dockerRegistry}"
 					echo "credential_registry: ${credential_registry}"
 					//docker.withRegistry("${dockerRegistry}", "${credential_registry}") {
+					sh "docker login -u=${dockeruser} -p=${dockerpwd}"
 					sh "docker build -f ./deployment/Dockerfile -t ${image}:${tag} ."
 					sh "docker push ${image}:${tag}"
 					sh "docker tag ${image}:${tag} ${image}:dev"
