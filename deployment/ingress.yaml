@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: user00-svc
+  name: dkne-svc
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
@@ -10,7 +10,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /user00
+      - path: /dkne
         pathType: Prefix
         backend:
           service:

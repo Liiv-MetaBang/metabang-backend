@@ -3,9 +3,9 @@ kind: ConfigMap
 metadata:
   name: sample-config
 data:
-  SERVLET_CONTEXT_PATH: "/user00"
+  SERVLET_CONTEXT_PATH: "/dkne"
 # MYSQL DB
-  DB_SERVER: mysql.mysql
+  DB_SERVER: dkne.mysql
   DB_PORT: "3306"
   DB_USERNAME: root
   DB_PASSWORD: passw0rd

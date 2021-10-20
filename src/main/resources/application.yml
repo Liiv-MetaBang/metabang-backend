@@ -9,8 +9,8 @@ spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${db_host:169.56.174.133}:${db_port:3306}/${db_name:test}?useUnicode=true&characterEncoding=utf-8
-    username: ${db_user:dkne}
-    password: ${db_pw:happy@cloud}
+    username: ${db_user:root}
+    password: ${db_pw:passw0rd}
     sql-script-encoding: utf-8
     hikari:
       connection-timeout: 5000
