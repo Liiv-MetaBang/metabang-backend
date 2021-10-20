@@ -4,8 +4,9 @@ spring:
     database: sql-server
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         format_sql: true
+        ddl-auto: none
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${DB_SERVER:169.56.174.133}:${DB_PORT:3306}/${DB_NAME:test}?useUnicode=true&characterEncoding=utf-8
@@ -18,6 +19,8 @@ spring:
       maximum-pool-size: 30
       minimum-idle: 2
       connection-test-query: SELECT 1
+  session:
+    store-type: jdbc
 
 
 #hibernate.globally_quoted_identifiers=true
