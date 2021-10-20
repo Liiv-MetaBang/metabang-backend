@@ -8,9 +8,10 @@ spec:
   tls:
   - secretName: tls-secret
   rules:
-  - http:
+  - host: dkne.169.56.174.130.nip.io
+    http:
       paths:
-      - path: /dkne
+      - path: /
         pathType: Prefix
         backend:
           service:
